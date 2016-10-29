@@ -2,5 +2,10 @@
   "plugins": [
     "react"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended"]
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "globals": {
+      "require": false,
+      "module": false,
+      "document": false
+  }
 }
