@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 var transparentBg = require('../styles').transparentBg;
 
 function Prompt(props){
@@ -34,6 +35,5 @@ Prompt.propTypes = {
     onSubmitUser: PropTypes.func.isRequired,
     username: PropTypes.string.isRequired
 };
-
 
 module.exports = Prompt;
