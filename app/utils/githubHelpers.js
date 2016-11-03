@@ -1,7 +1,7 @@
 var axios = require('axios');
 
-var id = 'YOUR_CLIENT_ID';
-var sec = 'YOUR_SECRET_ID';
+var id = 'f21895b2bb331f10b676';
+var sec = process.env.SECRET;
 var param = '?client_id=' + id + '&client_secret=' + sec;
 
 function getUserInfo(username){
