@@ -1,4 +1,4 @@
-# GitHub Battle Game
+# GitHub Battle Game built with React
 
 **Currently in progress**
 
