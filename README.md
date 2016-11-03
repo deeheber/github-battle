@@ -2,8 +2,10 @@
 
 **Currently in progress**
 
+**Working prototype [here](https://github-battle-game.herokuapp.com/)**
+
 ## Summary
-A game that compares two GitHub users.
+A game that compares two GitHub users info and calculates a score.
 A winner is declared based off of number of followers and star gazers on repos.
 
 ## To run locally
