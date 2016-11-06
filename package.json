@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "production": "webpack -p",
-    "start": "webpack-dev-server"
+    "dev": "webpack-dev-server",
+    "start": "node server.js"
   },
   "author": "Danielle Heberling",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.2",
+    "express": "^4.14.0",
     "raven-js": "^3.7.0",
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
@@ -29,5 +31,8 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
+  },
+  "engines": {
+    "node": "6.9.1"
   }
 }
