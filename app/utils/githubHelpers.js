@@ -1,4 +1,5 @@
 var axios = require('axios');
+var logCustomMessage = require('./logCustomMessage');
 
 var id = 'YOUR_CLIENT_ID';
 var sec = 'YOUR_SECRET_ID';
@@ -46,8 +47,11 @@ var helpers = {
                     return user.data;
                 })
             })
-            .catch(function(err){
-                console.warn('ERROR in getPlayersInfo ', err);
+            .catch(function(error){
+                return logCustomMessage(error.statusText, {
+                    players: players,
+                    error: error
+                })
             });
     },
     battle: function(players){
@@ -56,8 +60,11 @@ var helpers = {
 
         return axios.all([playerOneData, playerTwoData])
             .then(calculateScores)
-            .catch(function(err){
-                console.warn('ERROR: ', err);
+            .catch(function(error){
+                return logCustomMessage(error.statusText, {
+                    players: players,
+                    error: error
+                })
             })
     }
 };

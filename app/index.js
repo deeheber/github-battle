@@ -9,7 +9,7 @@ var sentryURL = 'https://' + sentryKey + '@sentry.io/' + sentryApp;
 
 var _APP_INFO = {
     name: 'Github Battle',
-    branch: 'video4',
+    branch: 'video12',
     version: '1.0'
 };
 
@@ -19,6 +19,10 @@ Raven.config(sentryURL, {
         branch: _APP_INFO.branch
     }
 }).install();
+
+window.onerror = function(){
+    Raven.showReportDialog();
+};
 
 ReactDOM.render(
     routes, 
