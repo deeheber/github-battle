@@ -25,4 +25,5 @@ A winner is declared based off of number of followers and star gazers on repos.
 - babel
 - webpack
 - GitHub api
+- sentry
 
