@@ -43,4 +43,4 @@ ConfirmBattle.propTypes = {
     onInitiateBattle: PropTypes.func.isRequired
 }
 
-module.exports = ConfirmBattle;
+export default ConfirmBattle;

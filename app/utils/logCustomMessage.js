@@ -9,4 +9,4 @@ function logCustomMessage(message, context){
     console.error(message);
 }
 
-module.exports = logCustomMessage;
+export default logCustomMessage;

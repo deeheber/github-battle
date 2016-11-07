@@ -47,5 +47,5 @@ var PromptContainer = React.createClass({
     }
 });
 
-module.exports = PromptContainer;
+export default PromptContainer;
 

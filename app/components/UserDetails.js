@@ -32,4 +32,4 @@ UserDetails.propTypes = {
   })
 }
 
-module.exports = UserDetails;
+export default UserDetails;

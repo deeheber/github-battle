@@ -9,4 +9,4 @@ function UserDetailsWrapper(props){
     )
 }
 
-module.exports = UserDetailsWrapper;
+export default UserDetailsWrapper;

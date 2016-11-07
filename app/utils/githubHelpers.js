@@ -1,9 +1,9 @@
 import axios from 'axios';
 import logCustomMessage from './logCustomMessage';
 
-var id = 'f21895b2bb331f10b676';
-var sec = process.env.SECRET;
-var param = '?client_id=' + id + '&client_secret=' + sec;
+const id = 'f21895b2bb331f10b676';
+const sec = process.env.SECRET;
+const param = '?client_id=' + id + '&client_secret=' + sec;
 
 function getUserInfo(username){
     return axios.get('https://api.github.com/users/' + username + param);
@@ -37,7 +37,7 @@ function calculateScores(players){
     ]
 }
 
-var helpers = {
+const helpers = {
     getPlayersInfo: function(players){
         return axios.all(players.map(function(username){
             return getUserInfo(username);
@@ -55,8 +55,8 @@ var helpers = {
             });
     },
     battle: function(players){
-        var playerOneData = getPlayersData(players[0])
-        var playerTwoData = getPlayersData(players[1]);
+        const playerOneData = getPlayersData(players[0])
+        const playerTwoData = getPlayersData(players[1]);
 
         return axios.all([playerOneData, playerTwoData])
             .then(calculateScores)
@@ -69,4 +69,4 @@ var helpers = {
     }
 };
 
-module.exports = helpers;
+export default helpers;

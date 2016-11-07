@@ -58,4 +58,4 @@ Results.PropTypes = {
     scores: PropTypes.array.isRequired
 };
 
-module.exports = Results;
+export default Results;

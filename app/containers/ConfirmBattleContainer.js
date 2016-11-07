@@ -41,4 +41,4 @@ var ConfirmBattleContainer = React.createClass({
     }
 });
 
-module.exports = ConfirmBattleContainer;
+export default ConfirmBattleContainer;
