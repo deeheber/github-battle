@@ -1,5 +1,5 @@
-var axios = require('axios');
-var logCustomMessage = require('./logCustomMessage');
+import axios from 'axios';
+import logCustomMessage from './logCustomMessage';
 
 var id = 'f21895b2bb331f10b676';
 var sec = process.env.SECRET;

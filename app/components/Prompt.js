@@ -1,8 +1,5 @@
-var React = require('react');
-//TODO refactor this to get rid of console err 
-//per https://facebook.github.io/react/warnings/dont-call-proptypes.html
-var PropTypes = React.PropTypes;
-var transparentBg = require('../styles').transparentBg;
+import React, { PropTypes } from 'react';
+import { transparentBg } from '../styles';
 
 function Prompt(props){
     return (

@@ -1,4 +1,4 @@
-var Raven = require('raven-js');
+import Raven from 'raven-js';
 
 function logCustomMessage(message, context){
     Raven.captureMessage(message, {
