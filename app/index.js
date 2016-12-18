@@ -8,23 +8,23 @@ const sentryApp = '110288';
 const sentryURL = 'https://' + sentryKey + '@sentry.io/' + sentryApp;
 
 const _APP_INFO = {
-    name: 'Github Battle',
-    branch: 'video12',
-    version: '1.0'
+  name: 'Github Battle',
+  branch: 'video12',
+  version: '1.0'
 };
 
 Raven.config(sentryURL, {
-    release: _APP_INFO.version,
-    tags: {
-        branch: _APP_INFO.branch
-    }
+  release: _APP_INFO.version,
+  tags: {
+      branch: _APP_INFO.branch
+  }
 }).install();
 
 window.onerror = function(){
-    Raven.showReportDialog();
+  Raven.showReportDialog();
 };
 
 ReactDOM.render(
-    routes, 
-    document.getElementById('app')
+  routes, 
+  document.getElementById('app')
 );
