@@ -76,20 +76,20 @@
 	var sentryURL = 'https://' + sentryKey + '@sentry.io/' + sentryApp;
 	
 	var _APP_INFO = {
-	    name: 'Github Battle',
-	    branch: 'video12',
-	    version: '1.0'
+	  name: 'Github Battle',
+	  branch: 'video12',
+	  version: '1.0'
 	};
 	
 	_ravenJs2.default.config(sentryURL, {
-	    release: _APP_INFO.version,
-	    tags: {
-	        branch: _APP_INFO.branch
-	    }
+	  release: _APP_INFO.version,
+	  tags: {
+	    branch: _APP_INFO.branch
+	  }
 	}).install();
 	
 	window.onerror = function () {
-	    _ravenJs2.default.showReportDialog();
+	  _ravenJs2.default.showReportDialog();
 	};
 	
 	_reactDom2.default.render(_routes2.default, document.getElementById('app'));
@@ -21468,7 +21468,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(2);
@@ -21502,17 +21502,17 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var routes = _react2.default.createElement(
-	    _reactRouter.Router,
-	    { history: _reactRouter.hashHistory },
-	    _react2.default.createElement(
-	        _reactRouter.Route,
-	        { path: '/', component: _Main2.default },
-	        _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'playerOne', header: 'Player One', component: _PromptContainer2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'playerTwo/:playerOne', header: 'Player Two', component: _PromptContainer2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'battle', component: _ConfirmBattleContainer2.default }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'results', component: _ResultsContainer2.default })
-	    )
+	  _reactRouter.Router,
+	  { history: _reactRouter.hashHistory },
+	  _react2.default.createElement(
+	    _reactRouter.Route,
+	    { path: '/', component: _Main2.default },
+	    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'playerOne', header: 'Player One', component: _PromptContainer2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'playerTwo/:playerOne', header: 'Player Two', component: _PromptContainer2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'battle', component: _ConfirmBattleContainer2.default }),
+	    _react2.default.createElement(_reactRouter.Route, { path: 'results', component: _ResultsContainer2.default })
+	  )
 	);
 	
 	exports.default = routes;
@@ -28527,15 +28527,15 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	var styles = {
-	    transparentBg: {
-	        background: 'transparent'
-	    },
-	    space: {
-	        marginTop: '25px'
-	    }
+	  transparentBg: {
+	    background: 'transparent'
+	  },
+	  space: {
+	    marginTop: '25px'
+	  }
 	};
 	
 	exports.default = styles;
@@ -28757,13 +28757,15 @@
 	  _createClass(ConfirmBattleContainer, [{
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+	
 	      var query = this.props.location.query;
 	      _githubHelpers2.default.getPlayersInfo([query.playerOne, query.playerTwo]).then(function (players) {
-	        this.setState({
+	        _this2.setState({
 	          isLoading: false,
 	          playersInfo: [players[0], players[1]]
 	        });
-	      }.bind(this));
+	      });
 	    }
 	  }, {
 	    key: 'handleInitiateBattle',
@@ -28778,13 +28780,13 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 	
 	      return _react2.default.createElement(_ConfirmBattle2.default, {
 	        isLoading: this.state.isLoading,
 	        playersInfo: this.state.playersInfo,
 	        onInitiateBattle: function onInitiateBattle() {
-	          _this2.handleInitiateBattle();
+	          _this3.handleInitiateBattle();
 	        }
 	      });
 	    }
@@ -29044,7 +29046,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _react = __webpack_require__(2);
@@ -29054,69 +29056,71 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var styles = {
-	    container: {
-	        position: 'fixed',
-	        left: 0,
-	        right: 0,
-	        top: 0,
-	        bottom: 0,
-	        fontSize: '55px'
-	    },
-	    content: {
-	        textAlign: 'center',
-	        position: 'absolute',
-	        width: '100%',
-	        marginTop: '30px'
-	    }
+	  container: {
+	    position: 'fixed',
+	    left: 0,
+	    right: 0,
+	    top: 0,
+	    bottom: 0,
+	    fontSize: '55px'
+	  },
+	  content: {
+	    textAlign: 'center',
+	    position: 'absolute',
+	    width: '100%',
+	    marginTop: '30px'
+	  }
 	};
 	
 	var Loading = _react2.default.createClass({
-	    displayName: 'Loading',
+	  displayName: 'Loading',
 	
-	    propTypes: {
-	        text: _react.PropTypes.string,
-	        speed: _react.PropTypes.number
-	    },
-	    getDefaultProps: function getDefaultProps() {
-	        return {
-	            text: 'Loading',
-	            speed: 300
-	        };
-	    },
-	    getInitialState: function getInitialState() {
-	        this.originalText = this.props.text;
-	        return {
-	            text: this.originalText
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        var stopper = this.originalText + '...';
-	        this.interval = setInterval(function () {
-	            if (this.state.text === stopper) {
-	                this.setState({
-	                    text: this.originalText
-	                });
-	            } else {
-	                this.setState({
-	                    text: this.state.text + '.'
-	                });
-	            }
-	        }.bind(this), this.props.speed);
-	    },
-	    componentWillUnmount: function componentWillUnmount() {
-	        clearInterval(this.interval);
-	    },
-	    render: function render() {
-	        return _react2.default.createElement(
-	            'div',
-	            { style: styles.container },
-	            _react2.default.createElement(
-	                'p',
-	                { style: styles.content },
-	                this.state.text
-	            )
-	        );
-	    }
+	  propTypes: {
+	    text: _react.PropTypes.string,
+	    speed: _react.PropTypes.number
+	  },
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      text: 'Loading',
+	      speed: 300
+	    };
+	  },
+	  getInitialState: function getInitialState() {
+	    this.originalText = this.props.text;
+	    return {
+	      text: this.originalText
+	    };
+	  },
+	  componentDidMount: function componentDidMount() {
+	    var _this = this;
+	
+	    var stopper = this.originalText + '...';
+	    this.interval = setInterval(function () {
+	      if (_this.state.text === stopper) {
+	        _this.setState({
+	          text: _this.originalText
+	        });
+	      } else {
+	        _this.setState({
+	          text: _this.state.text + '.'
+	        });
+	      }
+	    }, this.props.speed);
+	  },
+	  componentWillUnmount: function componentWillUnmount() {
+	    window.clearInterval(this.interval);
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      { style: styles.container },
+	      _react2.default.createElement(
+	        'p',
+	        { style: styles.content },
+	        this.state.text
+	      )
+	    );
+	  }
 	});
 	
 	exports.default = Loading;
@@ -29128,7 +29132,7 @@
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _axios = __webpack_require__(260);
@@ -29146,58 +29150,58 @@
 	var param = '?client_id=' + id + '&client_secret=' + sec;
 	
 	function getUserInfo(username) {
-	    return _axios2.default.get('https://api.github.com/users/' + username + param);
+	  return _axios2.default.get('https://api.github.com/users/' + username + param);
 	}
 	
 	function getRepos(username) {
-	    return _axios2.default.get('https://api.github.com/users/' + username + '/repos' + param + '&per_page=100');
+	  return _axios2.default.get('https://api.github.com/users/' + username + '/repos' + param + '&per_page=100');
 	}
 	
 	function getTotalStars(repos) {
-	    return repos.data.reduce(function (prev, current) {
-	        return prev + current.stargazers_count;
-	    }, 0);
+	  return repos.data.reduce(function (prev, current) {
+	    return prev + current.stargazers_count;
+	  }, 0);
 	}
 	
 	function getPlayersData(player) {
-	    return getRepos(player.login).then(getTotalStars).then(function (totalStars) {
-	        return {
-	            followers: player.followers,
-	            totalStars: totalStars
-	        };
-	    });
+	  return getRepos(player.login).then(getTotalStars).then(function (totalStars) {
+	    return {
+	      followers: player.followers,
+	      totalStars: totalStars
+	    };
+	  });
 	}
 	
 	function calculateScores(players) {
-	    return [players[0].followers * 3 + players[0].totalStars, players[1].followers * 3 + players[1].totalStars];
+	  return [players[0].followers * 3 + players[0].totalStars, players[1].followers * 3 + players[1].totalStars];
 	}
 	
 	var helpers = {
-	    getPlayersInfo: function getPlayersInfo(players) {
-	        return _axios2.default.all(players.map(function (username) {
-	            return getUserInfo(username);
-	        })).then(function (info) {
-	            return info.map(function (user) {
-	                return user.data;
-	            });
-	        }).catch(function (error) {
-	            return (0, _logCustomMessage2.default)(error.statusText, {
-	                players: players,
-	                error: error
-	            });
-	        });
-	    },
-	    battle: function battle(players) {
-	        var playerOneData = getPlayersData(players[0]);
-	        var playerTwoData = getPlayersData(players[1]);
+	  getPlayersInfo: function getPlayersInfo(players) {
+	    return _axios2.default.all(players.map(function (username) {
+	      return getUserInfo(username);
+	    })).then(function (info) {
+	      return info.map(function (user) {
+	        return user.data;
+	      });
+	    }).catch(function (error) {
+	      return (0, _logCustomMessage2.default)(error.statusText, {
+	        players: players,
+	        error: error
+	      });
+	    });
+	  },
+	  battle: function battle(players) {
+	    var playerOneData = getPlayersData(players[0]);
+	    var playerTwoData = getPlayersData(players[1]);
 	
-	        return _axios2.default.all([playerOneData, playerTwoData]).then(calculateScores).catch(function (error) {
-	            return (0, _logCustomMessage2.default)(error.statusText, {
-	                players: players,
-	                error: error
-	            });
-	        });
-	    }
+	    return _axios2.default.all([playerOneData, playerTwoData]).then(calculateScores).catch(function (error) {
+	      return (0, _logCustomMessage2.default)(error.statusText, {
+	        players: players,
+	        error: error
+	      });
+	    });
+	  }
 	};
 	
 	exports.default = helpers;
@@ -30691,7 +30695,7 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
 	
 	var _ravenJs = __webpack_require__(286);
@@ -30701,12 +30705,12 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function logCustomMessage(message, context) {
-	    _ravenJs2.default.captureMessage(message, {
-	        level: 'error',
-	        extra: context
-	    });
+	  _ravenJs2.default.captureMessage(message, {
+	    level: 'error',
+	    extra: context
+	  });
 	
-	    console.error(message);
+	  console.error(message);
 	}
 	
 	exports.default = logCustomMessage;
@@ -33214,8 +33218,10 @@
 	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
 	var _react = __webpack_require__(2);
 	
@@ -33231,30 +33237,51 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var ResultsContainer = _react2.default.createClass({
-	    displayName: 'ResultsContainer',
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	    getInitialState: function getInitialState() {
-	        return {
-	            isLoading: true,
-	            scores: []
-	        };
-	    },
-	    componentDidMount: function componentDidMount() {
-	        _githubHelpers2.default.battle(this.props.location.state.playerInfo).then(function (scores) {
-	            this.setState({
-	                scores: scores,
-	                isLoading: false
-	            });
-	        }.bind(this));
-	    },
-	    render: function render() {
-	        return _react2.default.createElement(_Results2.default, {
-	            playersInfo: this.props.location.state.playerInfo,
-	            isLoading: this.state.isLoading,
-	            scores: this.state.scores });
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var ResultsContainer = function (_Component) {
+	  _inherits(ResultsContainer, _Component);
+	
+	  function ResultsContainer() {
+	    _classCallCheck(this, ResultsContainer);
+	
+	    var _this = _possibleConstructorReturn(this, (ResultsContainer.__proto__ || Object.getPrototypeOf(ResultsContainer)).call(this));
+	
+	    _this.state = {
+	      isLoading: true,
+	      scores: []
+	    };
+	    return _this;
+	  }
+	
+	  _createClass(ResultsContainer, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      _githubHelpers2.default.battle(this.props.location.state.playerInfo).then(function (scores) {
+	        _this2.setState({
+	          scores: scores,
+	          isLoading: false
+	        });
+	      });
 	    }
-	});
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(_Results2.default, {
+	        playersInfo: this.props.location.state.playerInfo,
+	        isLoading: this.state.isLoading,
+	        scores: this.state.scores });
+	    }
+	  }]);
+	
+	  return ResultsContainer;
+	}(_react.Component);
 	
 	exports.default = ResultsContainer;
 

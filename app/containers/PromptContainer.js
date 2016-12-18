@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Prompt from '../components/Prompt';
 
-class PromptContainer extends Component {
+class PromptContainer extends Component{
   constructor(){
     super();
     this.state = {

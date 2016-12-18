@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ConfirmBattle from '../components/ConfirmBattle';
 import githubHelpers from '../utils/githubHelpers';
 
-class ConfirmBattleContainer extends Component {
+class ConfirmBattleContainer extends Component{
   constructor(){
     super();
     this.state = {

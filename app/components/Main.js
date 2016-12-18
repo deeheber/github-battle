@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../main.css';
 
-class Main extends Component {
+class Main extends Component{
   render(){
     return (
       <div className='main-container'>

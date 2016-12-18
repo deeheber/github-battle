@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import ReactRouter, { Link } from 'react-router';
 import MainContainer from './MainContainer';
 
