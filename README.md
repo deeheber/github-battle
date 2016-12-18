@@ -1,8 +1,6 @@
 # GitHub Battle Game built with React
 
-**Currently in progress**
-
-**Working prototype [here](https://github-battle-game.herokuapp.com/)**
+**Live demo [here](https://github-battle-game.herokuapp.com/)**
 
 ## Summary
 A game that compares two GitHub users info and calculates a score.
