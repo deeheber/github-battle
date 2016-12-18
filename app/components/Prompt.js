@@ -1,34 +1,31 @@
-var React = require('react');
-//TODO refactor this to get rid of console err 
-//per https://facebook.github.io/react/warnings/dont-call-proptypes.html
-var PropTypes = React.PropTypes;
-var transparentBg = require('../styles').transparentBg;
+import React, { PropTypes } from 'react';
+import styles from '../styles';
 
 function Prompt(props){
-    return (
-            <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
-                <h1>{props.header}</h1>
-                <div className="col-sm-12">
-                    <form onSubmit={props.onSubmitUser}>
-                        <div className="form-group">
-                            <input 
-                                className="form-control"
-                                placeholder="GitHub Username"
-                                onChange={props.onUpdateUser}
-                                value={props.username}
-                                type="text" />
-                        </div>
-                        <div className="form-group col-sm-4 col-sm-offset-4">
-                            <button
-                                className="btn btn-block btn-success"
-                                type="submit">
-                                    Continue
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        )
+  return (
+    <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={styles.transparentBg}>
+      <h1>{props.header}</h1>
+      <div className="col-sm-12">
+        <form onSubmit={props.onSubmitUser}>
+          <div className="form-group">
+            <input 
+              className="form-control"
+              placeholder="GitHub Username"
+              onChange={props.onUpdateUser}
+              value={props.username}
+              type="text" />
+          </div>
+          <div className="form-group col-sm-4 col-sm-offset-4">
+            <button
+              className="btn btn-block btn-success"
+              type="submit">
+                Continue
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
 }
 
 Prompt.propTypes = {
@@ -38,4 +35,4 @@ Prompt.propTypes = {
     username: PropTypes.string.isRequired
 };
 
-module.exports = Prompt;
+export default Prompt;
